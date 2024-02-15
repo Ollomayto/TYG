@@ -1,0 +1,17 @@
+function checkCountry() {
+    fetch('https://proxycheck.io/v2/8.8.8.8/location?vpn=1&key=i08e4g-04b91b-igk6r3-9637o9')
+    .then(response => response.json())
+    .then(data => {
+        const country = data.country;
+        const allowedCountries = ['US', 'CA', 'GB', 'AU'];
+        if (allowedCountries.includes(country)) {
+            window.location.href = 'https://cutt.ly/HwX2xT7W';
+        } else {
+            alert('Access denied. You are not allowed to access this page.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Sorry, this content is not available in your region.');
+    });
+}
